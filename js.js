@@ -3,7 +3,7 @@
  
  
   
-let  money;
+let  +money;
 
   while (isNaN(money) || money === '' || money === null){
     money = prompt("Ваш месячный доход?", 23000);
