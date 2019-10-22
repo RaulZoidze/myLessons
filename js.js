@@ -3,7 +3,7 @@
  
  let  money;
   while (isNaN(money) || money === '' || money === null){
-    money = +prompt("Ваш месячный доход?", 23000);
+    money = +prompt("Ваш месячный доход?", 12000);
      };
 
 let  income = "Фриланс", 
@@ -12,12 +12,12 @@ let  income = "Фриланс",
      costsFirst1= prompt ("Какие обязательные ежемесячные расходы у вас есть?") ;
 let  costsFirst2; 
 while (isNaN(costsFirst2) || costsFirst2 === '' || costsFirst2 === null){
-    costsFirst2 = prompt("Во сколько это обойдется?", 1000);
+    costsFirst2 = +prompt("Во сколько это обойдется?", 1000);
      };
 let  costsFirst3= prompt ("Какие обязательные ежемесячные расходы у вас есть?") ,
      costsFirst4;
 while (isNaN(costsFirst4) || costsFirst4 === '' || costsFirst4 === null){
-    costsFirst4 = prompt("Во сколько это обойдется?", 1000);
+    costsFirst4 = +prompt("Во сколько это обойдется?", 1000);
      };
 let  mission = 50000, 
      period = 6 ,
@@ -37,46 +37,28 @@ showTypeOf(deposit);
      
 //Сумма обязательных расходов
  function getExpensesMonth() {
-      sum = costsFirst2 + costsFirst4; 
-      return ; 
+     return +costsFirst2 + +costsFirst4;      
   };
-getExpensesMonth();
+sum = getExpensesMonth();
 
 //Расходы - доходы
 function getAccumulatedMonth () {
-       accumulatedMonth = money-sum;    
-       return ; 
+      return  money-sum;         
   };
-getAccumulatedMonth();
+  accumulatedMonth = getAccumulatedMonth();
        
 
 //возвращаем период до цели
 function getTargetMonth () {
-       getMonth = mission / accumulatedMonth;
-       return ; 
+       return mission / accumulatedMonth;       
 }
-getTargetMonth();
+getMonth = getTargetMonth();
 
 
 
 //логи
 console.log("накопления за месяц :" + accumulatedMonth);
 console.log(Math.ceil((mission / budgetMonth)) + " месяцев до цели ");  
-
-
-
-
-
-
-
-//console.log("Период " + period + " месяцев");
-//console.log("Цель заработать " + mission + " долларов");
-//console.log(addExpenses.toLowerCase().split(','));
-//console.log(budgetDay % 30 + " Остаток от деления");
-//console.log(budgetMonth + ' Месячный Бюджет');
-
-//console.log("Дневной Бюджет " + Math.floor(budgetDay));
-
 
 //Считаем уровень дохода
 let getStatusIncome = function() {
@@ -91,7 +73,5 @@ let getStatusIncome = function() {
 };
 
 console.log(getStatusIncome());
-
-
 
 
