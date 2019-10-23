@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 let money,
   addExpenses = prompt("Перечислите возможные расходы за рассчитываемый период через запятую","Кот,Бензин,Продукты"),
   costsFirst1,
@@ -17,7 +17,7 @@ let start = function () {
     money = +prompt("Ваш месячный доход?", 50000);
   }
   while (isNaN(money) || money == '' || money == null);
-};
+}
 start();
 
 // возвращаем обязательные расходы + валидность
@@ -38,7 +38,7 @@ let getExpensesMonth = function () {
     sum += +count;
     }
   return sum;
-    };
+    }
 expensesAmount = getExpensesMonth();
 
 
@@ -74,7 +74,7 @@ let getStatusIncome = function () {
   } else {
     return ("Что то пошло не так");
   }
-};
+}
 
 //возвращаем тип данных
 let showTypeOf = function (data) {
