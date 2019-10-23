@@ -14,10 +14,10 @@ let money,
 // узнаем бюджет и валидность
 let start = function () {
   do {
-    money = +prompt("Ваш месячный доход?", 50000);
+    money = +prompt("Ваш месячный доход?", 10000);
   }
   while (isNaN(money) || money == '' || money == null);
-}
+};
 start();
 
 // возвращаем обязательные расходы + валидность
@@ -38,7 +38,7 @@ let getExpensesMonth = function () {
     sum += +count;
     }
   return sum;
-    }
+    };
 expensesAmount = getExpensesMonth();
 
 
@@ -54,8 +54,9 @@ getAccumulatedMonth();
 budgetMonth = money - expensesAmount;
 budgetDay = budgetMonth / 30;
 
-let getMonth;
+
 function getTargetMonth() {
+  let getMonth;
   getMonth = mission / accumulatedMonth;
   if (getMonth < 0) {
     return "цель не будет достигнута ";
@@ -66,15 +67,21 @@ function getTargetMonth() {
 getTargetMonth();
 
 //возвращаем уровень дохода
-let getStatusIncome = function () {
-  if (budgetDay >= 800) {
-    return ("Высокий уровень дохода");
-  } else if (budgetDay <= 300 && budgetDay >= 800) {
-    return ("Средний уровень дохода");
-  } else {
-    return ("Что то пошло не так");
-  }
+let getStatusIncome = function(){
+
+if   (budgetDay >= 800){  
+  return "Высокий уровень дохода"  ;     
 }
+else if (budgetDay >= 300 && budgetDay < 800 ) {
+  return "Средний уровень дохода" ;
+}
+else if (budgetDay >= 0 && budgetDay < 300) {
+  return "Низкий уровень дохода" ;
+}
+else  {
+  return "Что то пошло не так";}
+}
+
 
 //возвращаем тип данных
 let showTypeOf = function (data) {
