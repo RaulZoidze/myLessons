@@ -8,16 +8,6 @@ let money,
     while (isNaN(money) || money == '' || money == null);
     };
 start();
-let costsFirst1,
-    costsFirst3,    
-    budgetMonth,
-    budgetDay,
-    expensesAmount,
-    accumulatedMonth,
-    getMonth,
-    count;
-
-
 
 let appData = {
     income:{},
@@ -36,7 +26,10 @@ let appData = {
           appData.addExpenses = addExpenses.toLowerCase().split(',');
           appData.deposit = confirm("Есть ли у вас депозит в банке?");
 // цикл,задает вопрос:ответ 2 раза
-      let str;
+      let costsFirst1,
+          costsFirst3, 
+          count,
+          str;
         for (let i = 0; i < 2; i++) {
          if (i === 0) {
       do {costsFirst1 = prompt("Какие обязательные ежемесячные расходы у вас есть?", " Квартира ");}
@@ -56,21 +49,22 @@ let appData = {
       
       },
     getExpensesMonth:function () {
-      for (var key in appData.expenses) {
-         return appData.expensesMonth += +appData.expenses[key]; 
-        };
+      for (var key in appData.expenses) { 
+         return appData.expensesMonth += +appData.expenses[key];
+        }
       },
 //возвращаем накопления за месяц
-    getBudget: function () {     
-        appData.budgetMonth = money - appData.expensesMonth;
-        appData.budgetDay = appData.budgetMonth / 30;
-        
+
+    getBudget: function () {  
+      appData.budgetMonth = money - appData.expensesMonth;
+        //appData.budgetDay ;
         },
-    
-    
+
 //сколько до цели
-    getTargetMonth:function () { 
-      getMonth = appData.mission / appData.budgetMonth;
+
+    getTargetMonth: function () { 
+      let getMonth = appData.mission / appData.budgetMonth;//budgetMonth
+       ////////////////////////////////////////
         if (+getMonth  <= 0 || getMonth != isFinite()) {
           return "цель не будет достигнута ";
         } else {
@@ -79,7 +73,9 @@ let appData = {
     },
 
 //возвращаем уровень дохода
-    getStatusIncome: function(){
+   
+    getStatusIncome: function(){ 
+      appData.budgetDay = appData.budgetMonth / 30;
       if   (appData.budgetDay >= 800){  
         return "Высокий уровень дохода"  ;     
       }
@@ -105,7 +101,6 @@ appData.getStatusIncome();
 console.log("сумма обязательных расходов :" + appData.getExpensesMonth());
 console.log(appData.getTargetMonth());
 console.log(appData.getStatusIncome());
-
 
 for (let key in appData) {
   console.log('Наша программа включает в себя данные: ' + key + ': ');  // + appData[key])
