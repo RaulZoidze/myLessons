@@ -64,13 +64,13 @@ let appData = {
     getBudget: function () {     
         appData.budgetMonth = money - appData.expensesMonth;
         appData.budgetDay = appData.budgetMonth / 30;
-        //return money - appData.expensesMonth;
+        
         },
     
     
 //сколько до цели
     getTargetMonth:function () { 
-      getMonth =appData.getBudget / appData.mission ;
+      getMonth = appData.mission / appData.budgetMonth;
         if (+getMonth  <= 0 || getMonth != isFinite()) {
           return "цель не будет достигнута ";
         } else {
