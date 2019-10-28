@@ -54,15 +54,14 @@ let appData = {
 //возвращаем накопления за месяц
     getBudget: function () {  
       appData.budgetMonth = appData.budget - appData.expensesMonth;  
-      return appData.budgetMonth; 
+      appData.budgetDay = appData.budgetMonth / 30;
       },
 
 //сколько до цели
     
     getTargetMonth: function () { 
       let getMonth = appData.mission / appData.budgetMonth ;
-    // || getMonth != isFinite()
-      if (getMonth <= 0 ) { 
+      if (getMonth <= 0 && isFinite(getMonth)) { 
         return "цель не будет достигнута ";
       } else {
         return "цель будет достигнута за  :" + Math.floor(getMonth) + " месяца";
@@ -74,7 +73,6 @@ let appData = {
 //возвращаем уровень дохода
    
     getStatusIncome: function(){ 
-      appData.budgetDay = appData.budgetMonth / 30;
       if   (appData.budgetDay >= 800){  
         return "Высокий уровень дохода"  ;     
       }
@@ -95,8 +93,6 @@ let appData = {
 appData.asking();
 appData.getExpensesMonth();
 appData.getBudget();
-appData.getStatusIncome();
-appData.getTargetMonth();
 //лог
 console.log("сумма обязательных расходов :" + appData.expensesMonth);
 console.log(appData.getTargetMonth());
