@@ -143,7 +143,7 @@ console.log("сумма обязательных расходов :" + appData.e
 console.log(appData.getTargetMonth());
 console.log(appData.getStatusIncome());
 
-for ( let i=0; i < appData.addExpenses.length; i++) {
-  appData.addExpenses[i] = appData.addExpenses[i][0].toUpperCase() + appData.addExpenses[i].slice(1).toLowerCase();
-}
-console.log(appData.addExpenses.join());
+const  correсtName = appData.addExpenses.map(function(item){
+  return item[0].toUpperCase() + item.slice(1).toLowerCase()
+})
+console.log(correсtName.join());
