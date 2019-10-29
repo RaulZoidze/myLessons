@@ -1,4 +1,29 @@
 'use strict';
+
+let start = document.getElementById('start'),
+btnPlus = document.getElementsByTagName('button'),
+incomePlus = btnPlus[0],
+expensesPlus = btnPlus[1],
+additIncomeItem = document.querySelectorAll('.additional_income_item'),
+depBox = document.querySelector('#deposit_check'),
+budgetDayValue = document.getElementsByClassName('budget_day-value')[0],
+budgetMonthValue = document.getElementsByClassName('budget_month-value')[0],
+expensesMonthValue = document.getElementsByClassName('expenses_month-value')[0],
+accumulatedMonthValue = document.getElementsByClassName('accumulated_month-value')[0],
+additIncomValue = document.getElementsByClassName('additional_income-value')[0],
+additExpensesValue = document.getElementsByClassName('additional_expenses-value')[0],
+incomePeriodValue = document.getElementsByClassName('income_period-value')[0],
+targetMonthValue = document.getElementsByClassName('target_month-value')[0],
+targetAmount = document.querySelector('target-amount'),
+salaryAmount = document.querySelector('.salary-amount'),
+incomeTitle = document.querySelector('.income-title'),
+incomeAmount = document.querySelector('.income-amount'),
+expensesTitle = document.querySelector('.expenses-title'),
+expensesItems = document.querySelectorAll('.expenses-items'),
+additExpenses = document.querySelector('additional_expenses'),
+periodSelect = document.querySelector('.period-select'),
+additExpensesItem = document.querySelector('additional_expenses-item');
+
 // узнаем бюджет и валидность
 let money,
     start = function () {
@@ -143,7 +168,7 @@ console.log("сумма обязательных расходов :" + appData.e
 console.log(appData.getTargetMonth());
 console.log(appData.getStatusIncome());
 
-for ( let i=0; i < appData.addExpenses.length; i++) {
-  appData.addExpenses[i] = appData.addExpenses[i][0].toUpperCase() + appData.addExpenses[i].slice(1).toLowerCase();
-}
-console.log(appData.addExpenses.join());
+const  correсtName = appData.addExpenses.map(function(item){
+  return item[0].toUpperCase() + item.slice(1).toLowerCase()
+})
+console.log(correсtName.join());
